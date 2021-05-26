@@ -1,0 +1,46 @@
+﻿@page "/"
+
+
+<h1>BMW Munich - Employee Details</h1>
+
+Employee Selected: @message
+
+<br />
+<br />
+
+<div> <b>  Full Name - Title - Select </b> </div>
+<br />
+
+@foreach (var item in employees)
+{
+    <Employee OnClick="Clicked" Title="@item.Title" FullName="@item.FullName" />
+    <br />
+}
+
+
+
+@code
+{
+
+    string message = "";
+
+    List<EmployeeInfo> employees = new List<EmployeeInfo>
+{
+    new EmployeeInfo(){  Title = "CEO", FullName = "Michael Jordan" },
+    new EmployeeInfo(){  Title = "CFO", FullName = "Dan Schloss" },
+    new EmployeeInfo(){  Title = "CTO", FullName = "Uday Kumar" }
+
+  };
+
+    void Clicked(string name)
+    {
+        message = name;
+    }
+
+    public class EmployeeInfo
+    {
+        public string Title { get; set; }
+        public string FullName { get; set; }
+    }
+
+}

@@ -1,0 +1,22 @@
+﻿@page "/Employee"
+
+
+
+<div> @FullName - @Title - <button @onclick="@(() => OnClick.InvokeAsync(FullName))">Click</button> </div>
+
+
+
+@code {
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public string FullName { get; set; }
+
+    [Parameter]
+    public EventCallback<string> OnClick { get; set; }
+
+
+}
+
